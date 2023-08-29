@@ -1,7 +1,7 @@
 import React from "react";
-import LogoSolo from "../../assets/LogoSolo.png"
-import logo_tmdb from "../../assets/logo_tmdb.jpg"
-import footer from "./footer.css"
+import LogoSolo from "../../assets/LogoSolo.png";
+import logo_tmdb from "../../assets/logo_tmdb.jpg";
+import footer from "./footer.css";
 
 function Footer(){
     return(

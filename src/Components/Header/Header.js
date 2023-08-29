@@ -1,6 +1,6 @@
 import React from "react";
-import LogoSolo from "../../assets/LogoSolo.png"
-import header from "./header.css"
+import LogoSolo from "../../assets/LogoSolo.png";
+import header from "./header.css";
 
 function Header (){
     return(
