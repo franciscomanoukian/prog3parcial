@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class NotFound extends Component{
     render(){
         return(
-            <p>NOT FOUND</p>
+            <h1>NOT FOUND</h1>
         )
     }
 }
