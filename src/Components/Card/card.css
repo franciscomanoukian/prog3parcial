@@ -3,6 +3,7 @@
     margin: 0px;
     color: white;
     font-family: 'Work Sans', sans-serif;
+    text-decoration: underline;
 }
 
 .texto_foto{
@@ -17,7 +18,7 @@
     height: 100%;
     align-items: center;
     margin-top: 5px;
-    max-width: 140px;
+    max-width: 200px;
 }
 
 .linkadetalle{
@@ -45,4 +46,11 @@
     height: 300px;
     border-radius: 10px;
     margin-top: 5px;
+}
+
+.ocultar{
+    display: none;
+}
+.ver{
+    display: block;
 }

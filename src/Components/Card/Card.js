@@ -1,14 +1,77 @@
-import React from "react";
+import React, {Component} from "react";
 import card from "./card.css";
 
-function Card(props){
+class Card extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            descOculta: true,
+            textoBotonDesc: "Mostrar Desc",
+            textoBotonFav: "Agregar a favoritos",
+            favoritos: []
+        }
+    }
+
+    componentDidMount(){
+        let arrayFavoritos = [];
+
+        let recuperoStorage = localStorage.getItem('favoritos')
+        
+        if(recuperoStorage !== null){
+            arrayFavoritos = JSON.parse(recuperoStorage);
+
+           if(arrayFavoritos.includes(this.props.id)){
+             this.setState({
+                 textoBotonFav: 'Quitar de favoritos'
+             })
+           }    
+        }
+
+    }
+
+    agregarAFavoritos(id){
+        // Agregar un id dentro de array y colocar ese array en localStorage
+        let arrayFavoritos = []
+        arrayFavoritos.push(this.props.id)
+
+        //Subirlo a local storage stringifeado
+        let arrayFavoritosAString = JSON.stringify(arrayFavoritos)
+        localStorage.setItem('favoritos', arrayFavoritosAString)
+
+        this.setState({
+            textoBotonFav: "Quitar de favoritos"
+        })
+        
+    }
+
+    mostrarDesc(){
+        console.log('click');
+        if (this.state.descOculta == true) {
+            this.setState({
+                descOculta: false,
+                textoBotonDesc: "Ocultar Desc"
+            }) 
+        } else {
+            this.setState({
+                descOculta: true,
+                textoBotonDesc: "Mostrar Desc"
+            })
+        }
+       
+    }
+
+    render(){
     return(
         <article className="peliOSerie">
-        <p className="nombrePeliOSerie">{props.title}</p>
-        <img src={`https://image.tmdb.org/t/p/w500/${props.poster}`}  alt={props.title} className="tapapelicula"/>
-        <a href="" className="linkadetalle">Ver más</a>                  
+        <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
+        <a href="" className="linkadetalle">Ir a detalle</a>
+        <button onClick={()=>this.mostrarDesc()} className='linkadetalle' type="button">{ this.state.textoBotonDesc}</button>
+        <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button">{ this.state.textoBotonFav }</button>
+        <p className="nombrePeliOSerie">{this.props.title}</p>
+        <p class={this.state.descOculta ? 'ocultar':'ver' }>{this.props.description}</p>
         </article>
     )
+    }
 }
 //FALTA RUTAAAAS EN BOTON VER MAS
 export default Card;
