@@ -6,11 +6,11 @@ import footer from "./footer.css";
 function Footer(){
     return(
         <footer>
-    <p class="nuestrosnombres">Freixas, Manoukian y Lopez Teran</p>  
-    <p class="nuestrosnombres">2022 Wawa Max corp.</p>
-    <img class="logofooter" src={LogoSolo} alt="Logo"/>  
-    <img src={logo_tmdb} alt="" class="logotmdb"/>
-    <p class="nuestrosnombres">¿Necesita ayuda? <a href="mailto:help@wawamax.com">help@wawamax.com</a></p>
+    <p className="nuestrosnombres">Esquivel, Garcia Devesa y Manoukian</p>  
+    <p className="nuestrosnombres">2022 Wawa Max corp.</p>
+    <img className="logofooter" src={LogoSolo} alt="Logo"/>  
+    <img src={logo_tmdb} alt="" className="logotmdb"/>
+    <p className="nuestrosnombres">¿Necesita ayuda? <a href="mailto:help@wawamax.com">help@wawamax.com</a></p>
     </footer>
     )
 }

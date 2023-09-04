@@ -1,0 +1,15 @@
+.seccionPeliSerie{
+    width: 100%;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: #1c1c1c88;
+    margin: 10px;
+    padding-bottom: 10px;
+    align-items: flex-end;
+}
