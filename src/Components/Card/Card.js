@@ -64,11 +64,11 @@ class Card extends Component{
     return(
         <article className="peliOSerie">
         <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
-        <a href="" className="linkadetalle">More info</a>
+        <p className="nombrePeliOSerie">{this.props.title}</p>
         <button onClick={()=>this.mostrarDesc()} className='linkadetalle' type="button">{ this.state.textoBotonDesc}</button>
         <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button">{ this.state.textoBotonFav }</button>
-        <p className="nombrePeliOSerie">{this.props.title}</p>
-        <p class={this.state.descOculta ? 'ocultar':'ver' }>{this.props.description}</p>
+        <a href="" className="linkadetalle">More info</a>
+        
         </article>
     )
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import LogoSolo from "../../assets/LogoSolo.png";
 import Dropdown from "../Dropdown/Dropdown";
+import {CgSearch} from "react-icons/cg";
 import header from "./header.css";
 
 
@@ -25,7 +26,7 @@ function Header (){
 
         <form className="formbusqueda" action="./searchresults.html" method="get">
             <input className="inputbusqueda" type="text" name="buscar" id="" placeholder="Movie or serie"/>
-            <button className="submitbtn" type="submit">Search</button>
+            <button className="submitbtn" type="submit"><CgSearch style={{color: 'white', fontSize: '1vw'}}/></button>
         </form>
     </nav>
 </header>
