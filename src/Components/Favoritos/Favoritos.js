@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Favoritos extends Component{
     render(){
         return(
-            <h1>FAVORITOSSSSS</h1>
+            <h1>My favorites</h1>
         )
     }
 }

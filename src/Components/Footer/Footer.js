@@ -7,10 +7,10 @@ function Footer(){
     return(
         <footer>
     <p className="nuestrosnombres">Esquivel, Garcia Devesa y Manoukian</p>  
-    <p className="nuestrosnombres">2022 Wawa Max corp.</p>
+    <p className="nuestrosnombres">2022 Wawa Max Corp.</p>
     <img className="logofooter" src={LogoSolo} alt="Logo"/>  
     <img src={logo_tmdb} alt="" className="logotmdb"/>
-    <p className="nuestrosnombres">¿Necesita ayuda? <a href="mailto:help@wawamax.com">help@wawamax.com</a></p>
+    <p className="nuestrosnombres">Need help? <a href="mailto:help@wawamax.com">help@wawamax.com</a></p>
     </footer>
     )
 }

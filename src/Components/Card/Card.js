@@ -6,8 +6,8 @@ class Card extends Component{
         super(props);
         this.state = {
             descOculta: true,
-            textoBotonDesc: "Mostrar Desc",
-            textoBotonFav: "Agregar a favoritos",
+            textoBotonDesc: "Show description",
+            textoBotonFav: "Add to favorites",
             favoritos: []
         }
     }
@@ -22,7 +22,7 @@ class Card extends Component{
 
            if(arrayFavoritos.includes(this.props.id)){
              this.setState({
-                 textoBotonFav: 'Quitar de favoritos'
+                 textoBotonFav: 'Remove from favorites'
              })
            }    
         }
@@ -39,7 +39,7 @@ class Card extends Component{
         localStorage.setItem('favoritos', arrayFavoritosAString)
 
         this.setState({
-            textoBotonFav: "Quitar de favoritos"
+            textoBotonFav: "Remove from favorites"
         })
         
     }
@@ -49,12 +49,12 @@ class Card extends Component{
         if (this.state.descOculta == true) {
             this.setState({
                 descOculta: false,
-                textoBotonDesc: "Ocultar Desc"
+                textoBotonDesc: "Hide description"
             }) 
         } else {
             this.setState({
                 descOculta: true,
-                textoBotonDesc: "Mostrar Desc"
+                textoBotonDesc: "Show description"
             })
         }
        
@@ -64,7 +64,7 @@ class Card extends Component{
     return(
         <article className="peliOSerie">
         <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
-        <a href="" className="linkadetalle">Ir a detalle</a>
+        <a href="" className="linkadetalle">More info</a>
         <button onClick={()=>this.mostrarDesc()} className='linkadetalle' type="button">{ this.state.textoBotonDesc}</button>
         <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button">{ this.state.textoBotonFav }</button>
         <p className="nombrePeliOSerie">{this.props.title}</p>
