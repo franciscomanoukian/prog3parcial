@@ -5,6 +5,7 @@ import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound/NotFound";
 import Favoritos from "./Components/Favoritos/Favoritos";
 import DetallePeli from "./Components/DetallePeli/DetallePeli";
+import SearchResults from "./Components/SearchResults/SearchResults";
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
 
 
@@ -16,7 +17,8 @@ function App() {
             <Route path="/" exact={true} component={Home}/>
             <Route path="/detPelicula/:id" component={DetallePeli}/>
             <Route path="/favoritos" component={Favoritos}/>
-            <Route path="/notfound" component={NotFound}/>
+            <Route path="/searchResults" component={SearchResults}/>
+            <Route path="" component={NotFound}/>
           </Switch>
 
       <Footer/>

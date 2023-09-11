@@ -1,4 +1,7 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
+import {AiOutlineHeart} from "react-icons/ai";
+import {AiFillHeart} from "react-icons/ai";
 import card from "./card.css";
 
 class Card extends Component{
@@ -7,42 +10,54 @@ class Card extends Component{
         this.state = {
             descOculta: true,
             textoBotonDesc: "Show description",
-            textoBotonFav: "Add to favorites",
+            textoBotonFav: <AiOutlineHeart style={{color: 'white', fontSize: '27px'}}/>,
             favoritos: []
         }
     }
 
     componentDidMount(){
         let arrayFavoritos = [];
-
         let recuperoStorage = localStorage.getItem('favoritos')
         
         if(recuperoStorage !== null){
             arrayFavoritos = JSON.parse(recuperoStorage);
 
-           if(arrayFavoritos.includes(this.props.id)){
-             this.setState({
-                 textoBotonFav: 'Remove from favorites'
+        if(arrayFavoritos.includes(this.props.id)){
+            this.setState({
+                textoBotonFav: <AiFillHeart style={{color: 'pink', fontSize: '27px'}}/>
              })
-           }    
+           }     
         }
 
     }
 
     agregarAFavoritos(id){
         // Agregar un id dentro de array y colocar ese array en localStorage
-        let arrayFavoritos = []
-        arrayFavoritos.push(this.props.id)
+        let arrayFavoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos');
 
-        //Subirlo a local storage stringifeado
-        let arrayFavoritosAString = JSON.stringify(arrayFavoritos)
-        localStorage.setItem('favoritos', arrayFavoritosAString)
+        if(recuperoStorage !== null){
+            arrayFavoritos = JSON.parse(recuperoStorage);
 
-        this.setState({
-            textoBotonFav: "Remove from favorites"
+        if(arrayFavoritos.includes(this.props.id)){
+            //Si está el id en el array, sacarlo
+            arrayFavoritos = arrayFavoritos.filter(unId => unId !== this.props.id);
+            this.setState ({
+                textoBotonFav: <AiOutlineHeart style={{color: 'white', fontSize: '27px'}}/>
+            })
+        }else{
+            arrayFavoritos.push(this.props.id);
+            this.setState({
+                textoBotonFav: <AiFillHeart style={{color: 'pink', fontSize: '27px'}}/>/* "Remove from favorites" */
         })
-        
+        }
     }
+    //Subirlo a local storage stringifeado
+    let arrayFavoritosAString = JSON.stringify(arrayFavoritos)
+    localStorage.setItem('favoritos', arrayFavoritosAString)
+    console.log(localStorage)
+    
+}
 
     mostrarDesc(){
         console.log('click');
@@ -65,13 +80,16 @@ class Card extends Component{
         <article className="peliOSerie">
         <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
         <p className="nombrePeliOSerie">{this.props.title}</p>
+        <button className="linkadetalle"><Link className="link" to= {`./detPelicula/${this.props.id}`}>More info</Link></button>
+      {/*   <a href="./detPelicula/:id" className="linkadetalle">More info</a> */}
+        
+        <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
         <button onClick={()=>this.mostrarDesc()} className='linkadetalle' type="button">{ this.state.textoBotonDesc}</button>
-        <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button">{ this.state.textoBotonFav }</button>
-        <a href="" className="linkadetalle">More info</a>
+        <p class={this.state.descOculta ? 'ocultar':'ver' }>{this.props.description}</p>
         
         </article>
     )
     }
 }
-//FALTA RUTAAAAS EN BOTON VER MAS
+
 export default Card;

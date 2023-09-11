@@ -1,0 +1,49 @@
+.titulo_texto{
+        margin: 0px;
+        font-family: 'Work Sans';
+        color: white;
+        font-size: 50px;
+        padding-top: 10px;
+};
+
+.contenido_principal{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+};
+
+.imagen_detalle{ 
+    display: flex; 
+    justify-content: center; 
+    width: 325px; 
+};
+
+.texto_abajo_foto{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    justify-content: space-around;
+    background-color: #1c1c1c88;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    justify-self: flex-end;
+};
+
+.descripcion_abajo{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding-left: 5px;
+    width: 100%;
+    justify-content: flex-start;
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 3px;
+    margin-bottom: 8px;
+};
+
+
+
+
