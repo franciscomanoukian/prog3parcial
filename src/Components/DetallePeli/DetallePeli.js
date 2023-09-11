@@ -69,25 +69,24 @@ class DetallePeli extends Component{
     render(){
         return(
             <React.Fragment>
-            <section class="titulo_texto">
-            <h1 class="titulo">{this.state.peliDetail.original_title}</h1>
-            </section>
+                <section>
+           
+          
 
-        <section class="contenido_principal">
+        
             <article class="imagen_detalle">
-                <img src= { imagen + `${this.state.peliDetail.poster_path}`} alt="Poster" id="foto_portada"/>
-            </article>
-            
-            <article class="texto_abajo_foto">
+                <div> <img src= { imagen + `${this.state.peliDetail.poster_path}`} alt="Poster" id="foto_portada"/></div>
+                <div>
                 <p class="descripcion_abajo" id="rating">Rating: {this.state.peliDetail.vote_average}</p>
                 <p class="descripcion_abajo" id="releaseDate">Release Date: {this.state.peliDetail.release_date}</p>
                 <p class="descripcion_abajo" id="duracion">Length: {this.state.peliDetail.runtime} mins.</p>
                 <p class="descripcion_abajo" id="sinopsis">{this.state.peliDetail.overview}</p>
-            {/* VER  */} {/*   <p class="descripcion_abajo">Géneros: {this.state.peliDetail.genres} </p> */}
+                  {/* VER  */} {/*   <p class="descripcion_abajo">Géneros: {this.state.peliDetail.genres} </p> */}
+                  <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
+                
+                </div>
             </article>
         </section>
-        <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
-        
         </React.Fragment>
         )
     }

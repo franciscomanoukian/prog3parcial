@@ -28,12 +28,23 @@
     background-color: #2C5364;
     padding: 3px;
     border-radius: 10px;
-    width: 80px;
+    width: 12vw;
     justify-self: center;
     text-align: center;
     align-self: center;
     margin: 10px;
     text-decoration: none;
+    
+}
+
+.linkadetalle like {
+    color: white;
+    background-color: #2C5364;
+    border-radius: 10px;
+    width: 12vw;
+    justify-self: center;
+    text-align: center;
+    align-self: center;
     
 }
 
