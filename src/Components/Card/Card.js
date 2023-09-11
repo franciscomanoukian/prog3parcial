@@ -11,7 +11,7 @@ class Card extends Component{
             descOculta: true,
             textoBotonDesc: "Show description",
             textoBotonFav: <AiOutlineHeart style={{color: 'white', fontSize: '27px'}}/>,
-            favoritos: []
+            gitfavoritos: []
         }
     }
 
@@ -79,7 +79,6 @@ class Card extends Component{
     return(
         <article className="peliOSerie">
         <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
-        <p className="nombrePeliOSerie">{this.props.title}</p>
         <button className="linkadetalle">
             {this.props.esPeli?<Link className="link" to= {`./detPelicula/${this.props.id}`}>More info</Link>:<Link className="link" to= {`./detSerie/${this.props.id}`}>More info</Link>}
 
@@ -87,6 +86,7 @@ class Card extends Component{
         
         <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle like' type="button"> { this.state.textoBotonFav }</button>
         <button onClick={()=>this.mostrarDesc()} className='linkadetalle' type="button">{ this.state.textoBotonDesc}</button>
+        <p className="nombrePeliOSerie">{this.props.title}</p>
         <p className={this.state.descOculta ? 'ocultar':'ver' }>{this.props.description}</p>
         
         </article>
