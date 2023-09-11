@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {AiOutlineHeart} from "react-icons/ai";
 import {AiFillHeart} from "react-icons/ai";
+import detallepeli from "./detallepeli.css"
 
 let imagen = "https://image.tmdb.org/t/p/w342"
 
@@ -67,27 +68,28 @@ class DetallePeli extends Component{
     
 }
     render(){
+        console.log(this.state.peliDetail);
         return(
-            <React.Fragment>
+            
                 <section>
            
           
 
         
-            <article class="imagen_detalle">
+            <article className="imagen_detalle">
                 <div> <img src= { imagen + `${this.state.peliDetail.poster_path}`} alt="Poster" id="foto_portada"/></div>
                 <div>
-                <p class="descripcion_abajo" id="rating">Rating: {this.state.peliDetail.vote_average}</p>
-                <p class="descripcion_abajo" id="releaseDate">Release Date: {this.state.peliDetail.release_date}</p>
-                <p class="descripcion_abajo" id="duracion">Length: {this.state.peliDetail.runtime} mins.</p>
-                <p class="descripcion_abajo" id="sinopsis">{this.state.peliDetail.overview}</p>
+                <p className="descripcion_abajo" id="rating">Rating: {this.state.peliDetail.vote_average}</p>
+                <p className="descripcion_abajo" id="releaseDate">Release Date: {this.state.peliDetail.release_date}</p>
+                <p className="descripcion_abajo" id="duracion">Length: {this.state.peliDetail.runtime} mins.</p>
+                <p className="descripcion_abajo" id="sinopsis">{this.state.peliDetail.overview}</p>
                   {/* VER  */} {/*   <p class="descripcion_abajo">Géneros: {this.state.peliDetail.genres} </p> */}
-                  <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
+                <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
                 
                 </div>
             </article>
         </section>
-        </React.Fragment>
+    
         )
     }
 }

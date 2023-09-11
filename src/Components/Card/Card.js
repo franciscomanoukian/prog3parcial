@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {AiOutlineHeart} from "react-icons/ai";
 import {AiFillHeart} from "react-icons/ai";
-import {MdAddCircleOutline} from "react-icons/md" 
 import card from "./card.css";
 
 class Card extends Component{
@@ -81,11 +80,14 @@ class Card extends Component{
         <article className="peliOSerie">
         <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
         <p className="nombrePeliOSerie">{this.props.title}</p>
-        <button className="linkadetalle"><Link className="link" to= {`./detPelicula/${this.props.id}`}>More info</Link></button>
+        <button className="linkadetalle">
+            {this.props.esPeli?<Link className="link" to= {`./detPelicula/${this.props.id}`}>More info</Link>:<Link className="link" to= {`./detSerie/${this.props.id}`}>More info</Link>}
+
+        </button>
         
         <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle like' type="button"> { this.state.textoBotonFav }</button>
         <button onClick={()=>this.mostrarDesc()} className='linkadetalle' type="button">{ this.state.textoBotonDesc}</button>
-        <p class={this.state.descOculta ? 'ocultar':'ver' }>{this.props.description}</p>
+        <p className={this.state.descOculta ? 'ocultar':'ver' }>{this.props.description}</p>
         
         </article>
     )

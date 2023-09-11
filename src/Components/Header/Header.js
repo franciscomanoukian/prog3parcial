@@ -3,6 +3,7 @@ import LogoSolo from "../../assets/LogoSolo.png";
 import Dropdown from "../Dropdown/Dropdown";
 import {CgSearch} from "react-icons/cg";
 import header from "./header.css";
+import {Link} from "react-router-dom"
 
 
 function Header (){
@@ -17,11 +18,10 @@ function Header (){
 
 
     <nav className="headerDerecha">
-        <article className="linksHeader">
-            <a className="linkfavoritos" href="/favoritos">Favorites</a>
-            <a className="linkfavoritos" href="">Movies</a>
-            <a className="linkfavoritos" href="">Series</a>
-           
+        <article className="linksHeader">     
+        <Link to="/favoritos" className="linkfavoritos">Favorites</Link>
+        <Link to="/movies" className="linkfavoritos">Movies</Link>
+        <Link to="/series" className="linkfavoritos">Series</Link>
         </article>
 
         <form className="formbusqueda" action="./searchResults" method="get">
