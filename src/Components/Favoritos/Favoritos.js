@@ -5,7 +5,7 @@ class Favoritos extends Component {
   constructor() {
     super();
     this.state = {
-      arrayDePelis: null,
+      arrayDePelis: [],
     };
   }
 
@@ -25,13 +25,11 @@ class Favoritos extends Component {
         .then((response) => response.json())
         .then((data) => {
           console.log(data)
-          if(this.state.arrayDePelis) {
+          
             const listaFavs = this.state.arrayDePelis;
             listaFavs.push(data)
             this.setState({ arrayDePelis: listaFavs});
-          } else {
-            this.setState({arrayDePelis: [data]})
-          }
+          
         })
         .catch((e) => console.log(e));
     });
@@ -40,7 +38,7 @@ class Favoritos extends Component {
   render() {
     return (
       <section className="seccionPeliSerie">
-        {this.state.arrayDePelis? (
+        {this.state.arrayDePelis.length>0? (
           this.state.arrayDePelis.map((Obj, i) => {
             console.log(this.state);
             if (i < 5) {
