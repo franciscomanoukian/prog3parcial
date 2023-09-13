@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 
+class SearchResults extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
 
-    
-class SearchResults extends Component{
-    constructor(props){
-        super(props);
-    }
+  render() {
+    return <h2>Hola</h2>;
+  }
+}
 
-    render(){
-    return(
-        <h2>Hola</h2>
-    )}
-
-    }
-    
 export default SearchResults;

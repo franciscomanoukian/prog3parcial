@@ -18,7 +18,7 @@ class Card extends Component{
     componentDidMount(){
         let arrayFavoritos = [];
         let recuperoStorage = localStorage.getItem('favoritos')
-        
+        console.log(recuperoStorage)
         if(recuperoStorage !== null){
             arrayFavoritos = JSON.parse(recuperoStorage);
 
@@ -35,10 +35,12 @@ class Card extends Component{
         // Agregar un id dentro de array y colocar ese array en localStorage
         let arrayFavoritos = [];
         let recuperoStorage = localStorage.getItem('favoritos');
+        console.log(recuperoStorage)
 
-        if(recuperoStorage !== null){
+        if(recuperoStorage){
+            console.log(recuperoStorage);
             arrayFavoritos = JSON.parse(recuperoStorage);
-
+        }
         if(arrayFavoritos.includes(this.props.id)){
             //Si está el id en el array, sacarlo
             arrayFavoritos = arrayFavoritos.filter(unId => unId !== this.props.id);
@@ -51,13 +53,13 @@ class Card extends Component{
                 textoBotonFav: <AiFillHeart style={{color: 'pink', fontSize: '27px'}}/>/* "Remove from favorites" */
         })
         }
-    }
+    
     //Subirlo a local storage stringifeado
     let arrayFavoritosAString = JSON.stringify(arrayFavoritos)
     localStorage.setItem('favoritos', arrayFavoritosAString)
     console.log(localStorage)
     
-}
+    }
 
     mostrarDesc(){
         console.log('click');
