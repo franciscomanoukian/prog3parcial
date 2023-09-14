@@ -11,7 +11,7 @@ class DetallePeli extends Component{
        
         this.state = {
             id: this.props.match.params.id,
-            peliDetail : {},
+            peliDetail : false,
             textoBotonFav: <AiOutlineHeart style={{color: 'white', fontSize: '27px'}}/>,
             favoritos: []
         }
@@ -70,25 +70,36 @@ class DetallePeli extends Component{
     render(){
         console.log(this.state.peliDetail);
         return(
-            
-                <section>
-           
-          
-
-        
-            <article className="imagen_detalle">
-                <div> <img src= { imagen + `${this.state.peliDetail.poster_path}`} alt="Poster" id="foto_portada"/></div>
-                <div>
-                <p className="descripcion_abajo" id="rating">Rating: {this.state.peliDetail.vote_average}</p>
-                <p className="descripcion_abajo" id="releaseDate">Release Date: {this.state.peliDetail.release_date}</p>
-                <p className="descripcion_abajo" id="duracion">Length: {this.state.peliDetail.runtime} mins.</p>
-                <p className="descripcion_abajo" id="sinopsis">{this.state.peliDetail.overview}</p>
-                  {/* VER  */} {/*   <p class="descripcion_abajo">Géneros: {this.state.peliDetail.genres} </p> */}
-                <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
-                
-                </div>
+        <main>
+        <section className="titulo_texto">
+            <h1 className="titulo">{this.state.peliDetail.original_title}</h1>
+            <article className="texto_arriba_foto">
+                <p className="descripcion_arriba" id="año_y_rating">Release: {this.state.peliDetail.release_date} - ⭐️: {this.state.peliDetail.vote_average}</p>
             </article>
         </section>
+
+        <section className="contenido_principal">
+            <article className="imagen_detalle" id="foto_portada">
+                <img src= { imagen + `${this.state.peliDetail.poster_path}`} alt="Poster" className="tapapelicula"/>
+            </article>
+            
+            <article className="texto_abajo_foto">    
+                    <p className="descripcion_abajo" id="duracion">Length: {this.state.peliDetail.runtime} minutes.</p>
+                    <p className="descripcion_abajo" id="sinopsis">Overview: {this.state.peliDetail.overview}</p>
+                    <p className="descripcion_abajo">Genres:</p>
+                    {this.state.peliDetail && this.state.peliDetail.genres.length>0?
+                    <p className="descripcion_abajo" id="generos_pelicula">{this.state.peliDetail.genres.map((genres) => {
+                        return(<p className="link_botones_generos">{genres.name}</p>)
+                    })}</p>: <h2>Cargando...</h2>
+                }
+            </article>
+        </section>
+
+        <p className="descripcion_abajo"> 
+        <button onClick={()=>this.agregarAFavoritos(this.props.id)} className='linkadetalle' type="button"> { this.state.textoBotonFav }</button>
+        </p>
+          
+        </main>
     
         )
     }

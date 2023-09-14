@@ -1,10 +1,36 @@
-.titulo_texto{
-        margin: 0px;
-        font-family: 'Work Sans';
-        color: white;
-        font-size: 50px;
-        padding-top: 10px;
-};
+main{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+}
+
+body{
+    width: 100vw;
+    margin: 0px;
+    background-color: #1c1c1c;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.proveImg{
+    height: 70px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+
+.titulo{
+    margin: 0px;
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    font-size: 50px;
+    padding-top: 10px;
+}
 
 .contenido_principal{
     display: flex;
@@ -12,13 +38,59 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-};
+}
 
-.imagen_detalle{ 
-    display: flex; 
-    justify-content: center; 
-    width: 325px; 
-};
+.texto_arriba_foto{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 0px;
+}
+
+.lista_arriba{
+    display: flex;
+    margin: 0px;
+    padding-top: 5px;
+    padding-left: 0px;
+    flex-direction: row;
+}
+
+.tapapelicula{
+    height: 280px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.descripcion_arriba{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    font-family: 'Work Sans', sans-serif;
+    margin: 0px;
+    padding-bottom: 7px;
+    padding-left: 0px;
+}
+
+.poster_titanic{
+    height: 100%;
+    border-radius: 10px;
+}
+
+.trailer_detalle{
+    display: flex;
+    flex-direction: row;
+    padding-left: 5px;
+    height: 390px;
+    width: 673px;
+}
+
+.trailer_titanic{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
 
 .texto_abajo_foto{
     display: flex;
@@ -30,7 +102,39 @@
     border-radius: 10px;
     padding: 5px;
     justify-self: flex-end;
-};
+}
+
+.reviews{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-around;
+    background-color: #1c1c1c88;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    align-self: center;
+}
+
+.linksAVideos{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: flex-start;
+    background-color: #1c1c1c88;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    align-self: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.lista_abajo{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
 
 .descripcion_abajo{
     color: white;
@@ -42,8 +146,26 @@
     font-family: 'Work Sans', sans-serif;
     margin-top: 3px;
     margin-bottom: 8px;
-};
+}
 
+.link_botones_generos{
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    text-decoration: none;
+    background-color: #2C5364;
+    border-radius: 10px;
+    padding: 6px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
 
-
-
+.link_favoritos{
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    text-decoration: none;
+    background-color: #2C5364;
+    border-radius: 10px;
+    padding: 6px;
+    width: fit-content;
+}
