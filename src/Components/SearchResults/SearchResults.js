@@ -3,12 +3,22 @@ import React, { Component } from "react";
 class SearchResults extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    this.state = {valor:""};
   }
 
+  evitarSubmit(event){
+    event.preventDefault();
+  }
+
+  controlarCambios(event) {
+    this.setState({valor: event.target.value})
+    console.log(this.state)
+  }
   render() {
     return <h2>Hola</h2>;
+
   }
 }
 
 export default SearchResults;
+

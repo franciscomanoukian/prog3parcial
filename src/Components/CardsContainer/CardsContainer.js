@@ -7,9 +7,10 @@ class CardsContainer extends Component{
         super(props);
         this.state = {
             arrayDePelis : [],
+            loading: true
         }
     }
-
+    
     componentDidMount(){
         console.log("Estamos en componentDidMount");
         let urlPelis = this.props.url
@@ -17,6 +18,7 @@ class CardsContainer extends Component{
             .then(response => response.json())
             .then( data => this.setState({
                 arrayDePelis: data.results,
+                loading: false
             }))
             .catch(e => console.log(e))
     }

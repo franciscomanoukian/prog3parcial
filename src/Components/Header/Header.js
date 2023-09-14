@@ -1,6 +1,5 @@
 import React from "react";
 import LogoSolo from "../../assets/LogoSolo.png";
-import Dropdown from "../Dropdown/Dropdown";
 import {CgSearch} from "react-icons/cg";
 import header from "./header.css";
 import {Link} from "react-router-dom"
@@ -9,9 +8,7 @@ import {Link} from "react-router-dom"
 function Header (){
     return(
         <header>
-    <section className = "headerIzquierda">
-        
-        <article><Dropdown/></article>
+        <section className = "headerIzquierda">
         <img className="logoheader" src={LogoSolo} alt="Logo Empresa"/>
         <a href="/" className="nombrepagina"><h2 className="nombrepagina">Wawa Max</h2></a>
     </section>
