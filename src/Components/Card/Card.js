@@ -83,7 +83,7 @@ class Card extends Component{
         <article className="peliOSerie">
         <img src={`https://image.tmdb.org/t/p/w500/${this.props.poster}`}  alt={this.props.title} className="tapapelicula"/>
         <button className="linkadetalle">
-            {this.props.esPeli?<Link className="link" to= {`./detPelicula/${this.props.id}`}>More info</Link>:<Link className="link" to= {`./detSerie/${this.props.id}`}>More info</Link>}
+            <Link className="link" to= {`./detPelicula/${this.props.id}`}>More info</Link>
 
         </button>
         

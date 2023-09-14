@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Filtro from "../Filtro/Filtro";
 import Card from '../Card/Card';
-import todaspelis from "./todaspelis.css";
+import pelistop from "./pelistop.css";
 
 
-class TodasPelis extends Component{
+class PelisTop extends Component{
     constructor(){
         super();
         this.state = {
@@ -22,7 +22,7 @@ class TodasPelis extends Component{
     }
 
     cargarPeliculas(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=fd6a4e605ab941f2a77d6e640f54a48d&language=en-US&page=${this.state.paginaPelis}`)
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=fd6a4e605ab941f2a77d6e640f54a48d&language=en-US&page=${this.state.paginaPelis}`)
         .then(response => response.json())
         .then( data => this.setState({
             peliculas: this.state.peliculas.concat(data.results),
@@ -52,6 +52,7 @@ class TodasPelis extends Component{
         console.log(this.state.paginaPelis);
     return(
        <div>
+        <h3>Filter results:</h3>
        <Filtro handle={this.filtrarPeliculas}/>
         {this.state.filtraste?<p>No puede cargar pelis luego de filtro</p>:<button onClick={()=>this.cargarPeliculas()} className='linkadetalle'>Cargar más</button>}
        
@@ -70,4 +71,4 @@ class TodasPelis extends Component{
 }
 }
 
-export default TodasPelis
+export default PelisTop

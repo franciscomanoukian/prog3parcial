@@ -1,0 +1,21 @@
+input{
+    background-color: white;
+    border-radius: 50px;
+    border-color: transparent;
+    font-family: 'Work Sans', sans-serif;
+
+}
+
+.submitbtn{
+    background-color:#2C5364;
+    color: white;
+    border-radius: 50px;
+    border-color: transparent;
+    font-family: 'Work Sans', sans-serif;
+}
+
+label{
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+}

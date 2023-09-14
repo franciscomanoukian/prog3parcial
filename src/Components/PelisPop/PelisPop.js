@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Filtro from "../Filtro/Filtro";
 import Card from '../Card/Card';
-import todasseries from "./todasseries.css";
+import pelispop from "./pelispop.css";
 
 
-class TodasSeries extends Component{
+class PelisPop extends Component{
     constructor(){
         super();
         this.state = {
@@ -22,7 +22,7 @@ class TodasSeries extends Component{
     }
 
     cargarPeliculas(){
-        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=fd6a4e605ab941f2a77d6e640f54a48d&language=en-US&page=${this.state.paginaPelis}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=fd6a4e605ab941f2a77d6e640f54a48d&language=en-US&page=${this.state.paginaPelis}`)
         .then(response => response.json())
         .then( data => this.setState({
             peliculas: this.state.peliculas.concat(data.results),
@@ -43,6 +43,7 @@ class TodasSeries extends Component{
 
         this.setState({
             peliculas: pelisFiltradas,
+            filtraste: true
         })
         
     }
@@ -51,14 +52,16 @@ class TodasSeries extends Component{
         console.log(this.state.paginaPelis);
     return(
        <div>
+        <h3>Filter results:</h3>
        <Filtro handle={this.filtrarPeliculas}/>
-       <button onClick={()=>this.cargarPeliculas()} className='linkadetalle'>Cargar más</button>
+        {this.state.filtraste?<p>No puede cargar pelis luego de filtro</p>:<button onClick={()=>this.cargarPeliculas()} className='linkadetalle'>Cargar más</button>}
+       
         <section className="seccionPeliSerie">
         
         {
             this.state.peliculas.map((Obj)=>{
 
-                    return( <Card title={Obj.name} poster={Obj.poster_path} description={Obj.overview} id={Obj.id}/> )
+                    return( <Card title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id}/> )
                      
             })
         }
@@ -68,4 +71,4 @@ class TodasSeries extends Component{
 }
 }
 
-export default TodasSeries
+export default PelisPop

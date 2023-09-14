@@ -17,12 +17,11 @@ function Header (){
     <nav className="headerDerecha">
         <article className="linksHeader">     
         <Link to="/favoritos" className="linkfavoritos">Favorites</Link>
-        <Link to="/movies" className="linkfavoritos">Movies</Link>
-        <Link to="/series" className="linkfavoritos">Series</Link>
+        
         </article>
 
         <form className="formbusqueda" action="./searchResults" method="get">
-            <input className="inputbusqueda" type="text" name="buscar" id="" placeholder="Movie or serie"/>
+            <input className="inputbusqueda" type="text" name="buscar" id="" placeholder="Search Movies"/>
             <button className="submitbtn" type="submit"><CgSearch style={{color: 'white', fontSize: '1vw'}}/></button>
         </form>
     </nav>

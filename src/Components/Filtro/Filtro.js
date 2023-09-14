@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import filtro from "./filtro.css"
 
 class Filtro extends Component {
 
@@ -25,10 +26,9 @@ class Filtro extends Component {
 
     render(){
         return(
-            <form action="" onSubmit={(e)=>this.controlarEnvio(e)}>
-                <label htmlFor="">Filtrar por: </label>
-                <input type="text" name="filtro" onChange={(e)=>this.guardarDatosDelInput(e)} value={this.state.valorDelInput} />
-                <button type='submit'>Filtrar</button>
+            <form className="formbusqueda" action="" onSubmit={(e)=>this.controlarEnvio(e)}>
+                <input classname="inputbusqueda" placeholder="Filter Movies" type="text" name="filtro" onChange={(e)=>this.guardarDatosDelInput(e)} value={this.state.valorDelInput} />
+                <button className="submitbtn" type='submit'>Filter</button>
             </form>
         )
     }
