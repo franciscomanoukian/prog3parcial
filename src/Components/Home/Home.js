@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CardsContainer from "../CardsContainer/CardsContainer";
+import Search from "../Search/Search";
 
 class Home extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Home extends Component {
   render() {
     return (
       <main>
+        <Search/>
         <h3>
           Popular Movies{" "}
           <button className="linkadetalle">

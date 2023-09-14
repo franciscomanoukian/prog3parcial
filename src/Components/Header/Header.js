@@ -26,19 +26,6 @@ function Header() {
             Top Rated
           </Link>
         </article>
-
-        <form className="formbusqueda" action="./searchResults" method="get">
-          <input
-            className="inputbusqueda"
-            type="text"
-            name="buscar"
-            id=""
-            placeholder="Search Movies"
-          />
-          <button className="submitbtn" type="submit">
-            <CgSearch style={{ color: "white", fontSize: "1vw" }} />
-          </button>
-        </form>
       </nav>
     </header>
   );
