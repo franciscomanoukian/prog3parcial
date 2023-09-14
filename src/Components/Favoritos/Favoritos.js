@@ -25,12 +25,11 @@ class Favoritos extends Component {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
-          
-            const listaFavs = this.state.arrayDePelis;
-            listaFavs.push(data)
-            this.setState({ arrayDePelis: listaFavs});
-          
+          console.log(data);
+
+          const listaFavs = this.state.arrayDePelis;
+          listaFavs.push(data);
+          this.setState({ arrayDePelis: listaFavs });
         })
         .catch((e) => console.log(e));
     });
@@ -39,9 +38,15 @@ class Favoritos extends Component {
   render() {
     console.log(this.state);
     return (
-
       <main>
-        {(this.state.arrayDePelis.length>0? <CardsContainer arrayMovies={this.state.arrayDePelis} mostrarCinco={false}/>:<h2>No favorites</h2>)}
+        {this.state.arrayDePelis.length > 0 ? (
+          <CardsContainer
+            arrayMovies={this.state.arrayDePelis}
+            mostrarCinco={false}
+          />
+        ) : (
+          <h2>No favorites</h2>
+        )}
       </main>
     );
   }

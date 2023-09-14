@@ -1,6 +1,5 @@
-
-import React from 'react';
-import {ColorRing}  from 'react-loader-spinner';
+import React from "react";
+import { ColorRing } from "react-loader-spinner";
 
 const Loader = ({ loading }) => {
   if (!loading) {
@@ -9,15 +8,15 @@ const Loader = ({ loading }) => {
 
   return (
     <div className="loader">
-       <ColorRing
+      <ColorRing
         visible={true}
         height="80"
         width="80"
         ariaLabel="blocks-loading"
         wrapperStyle={{}}
         wrapperClass="blocks-wrapper"
-        colors={['#2C5364', '#DDDDDD']}
-    />
+        colors={["#2C5364", "#DDDDDD"]}
+      />
       <div className="spinner"></div>
       <p>Cargando...</p>
     </div>
@@ -25,28 +24,3 @@ const Loader = ({ loading }) => {
 };
 
 export default Loader;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
