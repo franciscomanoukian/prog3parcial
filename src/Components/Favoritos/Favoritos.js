@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
+import CardsContainer from "../CardsContainer/CardsContainer";
 
 class Favoritos extends Component {
   constructor() {
@@ -36,31 +37,12 @@ class Favoritos extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
-      <section className="seccionPeliSerie">
-        {this.state.arrayDePelis.length>0? (
-          this.state.arrayDePelis.map((Obj, i) => {
-            console.log(this.state);
-            if (i < 5) {
-              // Con esta línea llevamos solo 5 peliculas y no las 20 que guardamos en this.state
-              return (
-                <Card
-                  key={i}
-                  title={this.props.esPeli ? Obj.title : Obj.name}
-                  poster={Obj.poster_path}
-                  description={Obj.overview}
-                  id={Obj.id}
-                  esPeli={this.props.esPeli ? true : false}
-                />
-              );
-            } else {
-              return null;
-            }
-          })
-        ) : (
-          <h2>No hay peliculas</h2>
-        )}
-      </section>
+
+      <main>
+        {(this.state.arrayDePelis.length>0? <CardsContainer arrayMovies={this.state.arrayDePelis} mostrarCinco={false}/>:<h2>No favorites</h2>)}
+      </main>
     );
   }
 }

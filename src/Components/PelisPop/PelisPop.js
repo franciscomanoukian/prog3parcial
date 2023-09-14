@@ -51,7 +51,7 @@ class PelisPop extends Component{
     render(){
         console.log(this.state.paginaPelis);
     return(
-       <div>
+       <main>
         <h3>Filter results:</h3>
        <Filtro handle={this.filtrarPeliculas}/>
         {this.state.filtraste?<p>No puede cargar pelis luego de filtro</p>:<button onClick={()=>this.cargarPeliculas()} className='linkadetalle'>Cargar más</button>}
@@ -66,7 +66,7 @@ class PelisPop extends Component{
             })
         }
         </section>
-        </div>
+        </main>
     )
 }
 }

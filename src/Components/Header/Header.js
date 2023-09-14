@@ -16,8 +16,9 @@ function Header (){
 
     <nav className="headerDerecha">
         <article className="linksHeader">     
-        <Link to="/favoritos" className="linkfavoritos">Favorites</Link>
-        
+        <Link to="/favoritos" className="linkfavoritos">My Favorites</Link>
+        <Link to="/popular" className="linkfavoritos">Popular</Link>
+        <Link to="/toprated" className="linkfavoritos">Top Rated</Link>
         </article>
 
         <form className="formbusqueda" action="./searchResults" method="get">

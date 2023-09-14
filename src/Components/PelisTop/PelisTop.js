@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Filtro from "../Filtro/Filtro";
 import Card from '../Card/Card';
 import pelistop from "./pelistop.css";
+import CardsContainer from '../CardsContainer/CardsContainer';
 
 
 class PelisTop extends Component{
@@ -51,22 +52,16 @@ class PelisTop extends Component{
     render(){
         console.log(this.state.paginaPelis);
     return(
-       <div>
+       <main>
         <h3>Filter results:</h3>
        <Filtro handle={this.filtrarPeliculas}/>
         {this.state.filtraste?<p>No puede cargar pelis luego de filtro</p>:<button onClick={()=>this.cargarPeliculas()} className='linkadetalle'>Cargar más</button>}
        
         <section className="seccionPeliSerie">
         
-        {
-            this.state.peliculas.map((Obj)=>{
-
-                    return( <Card title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id}/> )
-                     
-            })
-        }
+        <CardsContainer arrayMovies={this.state.peliculas} mostrarCinco={false} />
         </section>
-        </div>
+        </main>
     )
 }
 }
