@@ -106,6 +106,7 @@ class DetallePeli extends Component {
               className="tapapelicula"
             />
           </article>
+          
 
           <article className="texto_abajo_foto">
             <p className="descripcion_abajo" id="duracion">
@@ -118,22 +119,20 @@ class DetallePeli extends Component {
               
               <p className="descripcion_abajo" id="generos_pelicula">
                 {this.state.peliDetail.genres.map((genres) => {
-                  return 
-                  <React.Fragment>
-                  <p className="link_botones_generos">{genres.name}</p>
-                  <button
+                  
+                  return(<p className="link_botones_generos">{genres.name}</p>)
+                })}
+              </p>
+              </article>
+        </section>
+        {/* <button
                     onClick={() => this.agregarAFavoritos(this.props.id)}
                     className="linkadetalle"
                     type="button"
                   >
                     {" "}
                     {this.state.textoBotonFav}
-                  </button>
-                  </React.Fragment>;
-                })}
-              </p>
-              </article>
-        </section>
+                  </button> */}
               </React.Fragment>
             ) : (
               <Loader/>
