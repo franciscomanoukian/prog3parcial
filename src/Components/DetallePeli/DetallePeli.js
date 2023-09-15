@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
+import Loader from "../Loader/Loader";
 import detallepeli from "./detallepeli.css";
+import loading from "../../assets/loading.gif";
+
 
 let imagen = "https://image.tmdb.org/t/p/w342";
 
@@ -34,7 +37,6 @@ class DetallePeli extends Component {
       }
     }
 
-    //OJO!!!!!!!!!! ES OTRO URL
     fetch(
       `https://api.themoviedb.org/3/movie/${this.state.id}?api_key=fd6a4e605ab941f2a77d6e640f54a48d&language=en-US&page=1`
     )
@@ -83,7 +85,10 @@ class DetallePeli extends Component {
     console.log(this.state.peliDetail);
     return (
       <main>
-        <section className="titulo_texto">
+      {this.state.peliDetail &&
+            this.state.peliDetail.genres.length > 0 ? (
+              <React.Fragment>
+              <section className="titulo_texto">
           <h1 className="titulo">{this.state.peliDetail.original_title}</h1>
           <article className="texto_arriba_foto">
             <p className="descripcion_arriba" id="año_y_rating">
@@ -110,30 +115,36 @@ class DetallePeli extends Component {
               Overview: {this.state.peliDetail.overview}
             </p>
             <p className="descripcion_abajo">Genres:</p>
-            {this.state.peliDetail &&
-            this.state.peliDetail.genres.length > 0 ? (
+              
               <p className="descripcion_abajo" id="generos_pelicula">
                 {this.state.peliDetail.genres.map((genres) => {
-                  return <p className="link_botones_generos">{genres.name}</p>;
+                  return 
+                  <React.Fragment>
+                  <p className="link_botones_generos">{genres.name}</p>
+                  <button
+                    onClick={() => this.agregarAFavoritos(this.props.id)}
+                    className="linkadetalle"
+                    type="button"
+                  >
+                    {" "}
+                    {this.state.textoBotonFav}
+                  </button>
+                  </React.Fragment>;
                 })}
               </p>
-            ) : (
-              <h2>Cargando...</h2>
-            )}
-          </article>
+              </article>
         </section>
+              </React.Fragment>
+            ) : (
+              <Loader/>
+            )
 
-        <p className="descripcion_abajo">
-          <button
-            onClick={() => this.agregarAFavoritos(this.props.id)}
-            className="linkadetalle"
-            type="button"
-          >
-            {" "}
-            {this.state.textoBotonFav}
-          </button>
-        </p>
-      </main>
+
+
+
+         
+
+             } </main>
     );
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
-import Loader from "../Loader/Loader";
 import card from "./card.css";
 
 class Card extends Component {
@@ -101,6 +100,7 @@ class Card extends Component {
           onClick={() => this.agregarAFavoritos(this.props.id)}
           className="linkadetalle like"
           type="button"
+          
         >
           {" "}
           {this.state.textoBotonFav}
@@ -116,7 +116,6 @@ class Card extends Component {
         <p className={this.state.descOculta ? "ocultar" : "ver"}>
           {this.props.description}
         </p>
-        <Loader loading={this.state.loading} />
       </article>
     );
   }

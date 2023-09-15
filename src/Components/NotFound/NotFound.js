@@ -1,13 +1,11 @@
 import React from "react";
 import notFound from "./notFound.css";
+import error404 from "../../assets/404.gif"
 
 function NotFound() {
   return (
-    <div class="sketchfab-embed-wrapper">
-      <iframe
-        src="https://giphy.com/embed/VxbP9tLeKzazm"
-        allowFullScreen
-      ></iframe>
+    <div className="error404">
+    <img clssName="img404" src={error404} alt="No favorites found" />
     </div>
   );
 }

@@ -1,11 +1,16 @@
+.error404 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh; 
+      }
+      
 
-.sketchfab-embed-wrapper{
-        width: 100%;
-        height: 100%;
-}
 
-iframe {
-    width: 100vw;
-    height: 80vh;
-    overflow: hidden;
-  }
+    
+      
+      
+      
+      
+

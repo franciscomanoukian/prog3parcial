@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
-import Loader from "../Loader/Loader";
+import nothing from "../../assets/nothing.gif";
+import searchResults from "./searchResults.css"
 import CardsContainer from "../CardsContainer/CardsContainer";
 
 class SearchResults extends Component {
@@ -30,11 +31,15 @@ class SearchResults extends Component {
   render() {
     return (
       <React.Fragment>
-        <h2>Resultados para:'{this.props.match.params.query}'</h2>
+        <h2 className="resultados">Results for: '{this.props.match.params.query}'</h2>
         {this.state.resultado.length > 0 ?  <CardsContainer
           arrayMovies={this.state.resultado}
           mostrarCinco={true}
-        />: <h2>Cargando...</h2>}
+        />: <React.Fragment>
+             <img src={nothing} alt="No results found"/>
+            </React.Fragment>
+        }
+      
       </React.Fragment>
     );
   }

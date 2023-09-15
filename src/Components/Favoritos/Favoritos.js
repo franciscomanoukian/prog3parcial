@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
 import CardsContainer from "../CardsContainer/CardsContainer";
+import favoritos from "./favoritos.css";
+import nothing from "../../assets/nothing.gif";
 
 class Favoritos extends Component {
   constructor() {
@@ -45,7 +47,12 @@ class Favoritos extends Component {
             mostrarCinco={false}
           />
         ) : (
-          <h2>No favorites</h2>
+          <React.Fragment>
+          <h2 className="textFavs">No favorites found</h2>
+          <div className="noFavs">
+          <img clssName="gifFavs" src={nothing} alt="No favorites found" />
+          </div>
+          </React.Fragment>
         )}
       </main>
     );

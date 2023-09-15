@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Filtro from "../Filtro/Filtro";
 import Card from "../Card/Card";
 import pelispop from "./pelispop.css";
+import CardsContainer from "../CardsContainer/CardsContainer";
 
 class PelisPop extends Component {
   constructor() {

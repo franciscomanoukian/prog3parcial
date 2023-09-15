@@ -169,3 +169,21 @@ body{
     padding: 6px;
     width: fit-content;
 }
+
+/* LOADER */
+
+.textLoading{
+    margin-top: 20px;
+}
+
+.containerLoader{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh; 
+}
+
+.gifLoading{
+    max-width: 100%; 
+    max-height: 100%; 
+}

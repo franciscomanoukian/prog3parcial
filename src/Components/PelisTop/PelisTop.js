@@ -30,8 +30,10 @@ class PelisTop extends Component {
           peliculas: this.state.peliculas.concat(data.results),
           paginaPelis: this.state.paginaPelis + 1,
         })
+        
       )
       .catch((e) => console.log(e));
+      
   }
 
   filtrarPeliculas = (textoAFiltrar) => {
