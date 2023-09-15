@@ -41,6 +41,7 @@ class Home extends Component {
   render() {
     return (
       <main>
+        <h3>Search all movies</h3>
         <Search/>
         <h3>
           Popular Movies{" "}

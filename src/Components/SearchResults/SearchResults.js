@@ -30,17 +30,18 @@ class SearchResults extends Component {
   }
   render() {
     return (
-      <React.Fragment>
+      <main>
         <h2 className="resultados">Results for: '{this.props.match.params.query}'</h2>
         {this.state.resultado.length > 0 ?  <CardsContainer
           arrayMovies={this.state.resultado}
           mostrarCinco={true}
         />: <React.Fragment>
+            <h3>No results!</h3>
              <img src={nothing} alt="No results found"/>
             </React.Fragment>
         }
       
-      </React.Fragment>
+      </main>
     );
   }
 }

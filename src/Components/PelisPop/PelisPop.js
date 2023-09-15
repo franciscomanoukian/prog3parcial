@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Filtro from "../Filtro/Filtro";
-import Card from "../Card/Card";
 import pelispop from "./pelispop.css";
 import CardsContainer from "../CardsContainer/CardsContainer";
 
@@ -30,8 +29,10 @@ class PelisPop extends Component {
           peliculas: this.state.peliculas.concat(data.results),
           paginaPelis: this.state.paginaPelis + 1,
         })
+        
       )
       .catch((e) => console.log(e));
+      
   }
 
   filtrarPeliculas = (textoAFiltrar) => {
@@ -55,31 +56,37 @@ class PelisPop extends Component {
     console.log(this.state.paginaPelis);
     return (
       <main>
-        <h3>Filter results:</h3>
-        <Filtro handle={this.filtrarPeliculas} />
+        <h1>Popular movies</h1>
         {this.state.filtraste ? (
-          <p>No puede cargar pelis luego de filtro</p>
+          <h2>Can't load more after filter!</h2>
         ) : (
           <button
             onClick={() => this.cargarPeliculas()}
             className="linkadetalle"
           >
-            Cargar más
+            Show more
           </button>
         )}
+        <h3>Filter results:</h3>
+        <Filtro handle={this.filtrarPeliculas} />
+        
 
         <section className="seccionPeliSerie">
-          {this.state.peliculas.map((Obj) => {
-            return (
-              <Card
-                title={Obj.title}
-                poster={Obj.poster_path}
-                description={Obj.overview}
-                id={Obj.id}
-              />
-            );
-          })}
+          <CardsContainer
+            arrayMovies={this.state.peliculas}
+            mostrarCinco={false}
+          />
         </section>
+        {this.state.filtraste ? (
+          <h2>Can't load more after filter!</h2>
+        ) : (
+          <button
+            onClick={() => this.cargarPeliculas()}
+            className="linkadetalle"
+          >
+            Show more
+          </button>
+        )}
       </main>
     );
   }

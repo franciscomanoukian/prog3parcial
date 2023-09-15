@@ -57,18 +57,20 @@ class PelisTop extends Component {
     console.log(this.state.paginaPelis);
     return (
       <main>
-        <h3>Filter results:</h3>
-        <Filtro handle={this.filtrarPeliculas} />
+        <h1>Top rated movies</h1>
         {this.state.filtraste ? (
-          <p>No puede cargar pelis luego de filtro</p>
+          <h2>Can't load more after filter!</h2>
         ) : (
           <button
             onClick={() => this.cargarPeliculas()}
             className="linkadetalle"
           >
-            Cargar más
+            Show more
           </button>
         )}
+        <h3>Filter results:</h3>
+        <Filtro handle={this.filtrarPeliculas} />
+        
 
         <section className="seccionPeliSerie">
           <CardsContainer
@@ -76,6 +78,16 @@ class PelisTop extends Component {
             mostrarCinco={false}
           />
         </section>
+        {this.state.filtraste ? (
+          <h2>Can't load more after filter!</h2>
+        ) : (
+          <button
+            onClick={() => this.cargarPeliculas()}
+            className="linkadetalle"
+          >
+            Show more
+          </button>
+        )}
       </main>
     );
   }

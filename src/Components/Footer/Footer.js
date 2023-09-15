@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer>
       <p className="nuestrosnombres">Esquivel, Garcia Devesa y Manoukian</p>
-      <p className="nuestrosnombres">2022 Wawa Max Corp.</p>
+      <p className="nuestrosnombres">2023 Wawa Max Corp.</p>
       <img className="logofooter" src={LogoSolo} alt="Logo" />
       <img src={logo_tmdb} alt="" className="logotmdb" />
       <p className="nuestrosnombres">
