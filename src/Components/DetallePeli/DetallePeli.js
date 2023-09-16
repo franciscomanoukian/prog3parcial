@@ -24,8 +24,8 @@ class DetallePeli extends Component {
 
   componentDidMount() {
     let arrayFavoritos = [];
-    let recuperoStorage = localStorage.getItem("favoritos");
-    if (recuperoStorage !== null) {
+      let recuperoStorage = localStorage.getItem("favoritos");
+      if (recuperoStorage !== null) {
       arrayFavoritos = JSON.parse(recuperoStorage);
 
       if (arrayFavoritos.includes(this.state.id)) {
@@ -36,7 +36,6 @@ class DetallePeli extends Component {
         });
       }
     }
-
     fetch(
       `https://api.themoviedb.org/3/movie/${this.state.id}?api_key=fd6a4e605ab941f2a77d6e640f54a48d&language=en-US&page=1`
     )
@@ -47,6 +46,7 @@ class DetallePeli extends Component {
         })
       )
       .catch((e) => console.log(e));
+      
   }
 
   agregarAFavoritos(id) {
@@ -57,18 +57,19 @@ class DetallePeli extends Component {
     if (recuperoStorage !== null) {
       arrayFavoritos = JSON.parse(recuperoStorage);
 
-      if (arrayFavoritos.includes(this.state.id)) {
-        //Si está el id en el array, sacarlo
-        arrayFavoritos = arrayFavoritos.filter(
-          (unId) => unId !== this.state.id
-        );
+      if (arrayFavoritos.includes(this.state.peliDetail.id)) {
+        
         this.setState({
-          textoBotonFav: (
-            <AiOutlineHeart style={{ color: "white", fontSize: "27px" }} />
-          ),
-        });
+          textoBotonFav: 
+            <AiOutlineHeart style={{ color: "pink", fontSize: "27px" }} />
+          })
+        arrayFavoritos = arrayFavoritos.filter(
+          (unId) => unId !== this.state.peliDetail.id
+        );
+        
+        
       } else {
-        arrayFavoritos.push(this.state.id);
+        arrayFavoritos.push(this.state.peliDetail.id);
         this.setState({
           textoBotonFav: (
             <AiFillHeart style={{ color: "pink", fontSize: "27px" }} />
@@ -83,6 +84,8 @@ class DetallePeli extends Component {
   }
   render() {
     console.log(this.state.peliDetail);
+    console.log(this.state.id);
+    console.log(this.state.peliDetail.id);
     return (
       <main>
       {this.state.peliDetail &&
@@ -125,14 +128,14 @@ class DetallePeli extends Component {
               </p>
               </article>
         </section>
-        {/* <button
-                    onClick={() => this.agregarAFavoritos(this.props.id)}
+        {<button
+                    onClick={() => this.agregarAFavoritos(this.state.peliDetail.id)}
                     className="linkadetalle"
                     type="button"
                   >
                     {" "}
                     {this.state.textoBotonFav}
-                  </button> */}
+                  </button>}
               </React.Fragment>
             ) : (
               <Loader/>

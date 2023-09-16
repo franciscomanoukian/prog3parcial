@@ -15,7 +15,11 @@ class Favoritos extends Component {
   recuperoStorage() {
     let arrayFavs = localStorage.getItem("favoritos");
     let arrayRecuperado = JSON.parse(arrayFavs);
-    return arrayRecuperado;
+    if (arrayRecuperado == null) {
+      return []
+    } else {
+      return arrayRecuperado
+    }
   }
 
   componentDidMount() {
